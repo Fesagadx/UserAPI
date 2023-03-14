@@ -20,7 +20,7 @@ const create = catchError(async (req, res) => {
         to: email,
         subject: "User app email verification",
         html: `<h1> Welcome ${firstName} </h1>
-        <p>Confirm your email by clicking on the following linkl</p>
+        <p>Confirm your email by clicking on the following link!!!!</p>
         <a href='${link}'> ${link} </a>`
     });
     await EmailCode.create({
@@ -97,7 +97,7 @@ const updatePassword = catchError(async (req, res) => {
         to: email,
         subject: "Update password",
         html: `<h1> Welcome ${user.firstName} </h1>
-        <p> Click here to change your password</p>
+        <p> Click here to change your password!!!!</p>
         <a href='${link}'> ${link} </a>`
     });
     await EmailCode.create({
