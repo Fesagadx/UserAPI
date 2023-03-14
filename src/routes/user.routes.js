@@ -4,6 +4,9 @@ const verifyJWT = require('../utils/verifyJWT.js');
 
 const routerUser = express.Router();
 
+routerUser.route('/me')
+    .get(verifyJWT, getLoggedUser);
+
 routerUser.route('/')
     .get(verifyJWT, getAll)
     .post(create);
@@ -18,9 +21,6 @@ routerUser.route('/verify/:code')
 
 routerUser.route('/login')
     .post(login);
-
-routerUser.route('/me')
-    .get(verifyJWT, getLoggedUser);
 
 routerUser.route('/reset_password')
     .post(updatePassword);
